@@ -1,0 +1,14 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Project delivery visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b263b"/>
+      <stop offset="1" stop-color="#415a77"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="120" y="120" width="460" height="460" rx="22" fill="#ffffff14" stroke="#ffffff4a"/>
+  <rect x="620" y="180" width="460" height="340" rx="22" fill="#ffffff1f" stroke="#ffffff52"/>
+  <path d="M220 430L320 330L400 390L520 260" fill="none" stroke="#bde0fe" stroke-width="14" stroke-linecap="round"/>
+  <text x="168" y="660" fill="#ffffff" font-size="34" font-family="Arial, sans-serif" font-weight="700">Client Delivery</text>
+</svg>
+

@@ -1,0 +1,13 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Application security visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1d3557"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <path d="M600 120L880 220V390C880 520 780 610 600 650C420 610 320 520 320 390V220L600 120Z" fill="#ffffff18" stroke="#ffffff60" stroke-width="8"/>
+  <path d="M520 360L575 415L690 290" fill="none" stroke="#80ed99" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="440" y="560" fill="#ffffff" font-size="36" font-family="Arial, sans-serif" font-weight="700">Secure by Design</text>
+</svg>
+

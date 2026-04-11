@@ -19,6 +19,25 @@ export type BlogPost = {
   content: string[]
 }
 
+export type SuccessStory = {
+  client: string
+  project: string
+  outcome: string
+  duration: string
+}
+
+export type Product = {
+  name: string
+  tagline: string
+  description: string
+  status: string
+}
+
+export type StrengthArea = {
+  title: string
+  details: string
+}
+
 export const services: Service[] = [
   {
     title: 'Brand Strategy',
@@ -100,6 +119,82 @@ export const blogPosts: BlogPost[] = [
       'Use social proof early. Testimonials, logos, or selected wins signal credibility before visitors scroll too far.',
       'Speed matters. Compress images, limit animations, and prioritize readability. A fast and clear website is often more persuasive than a complicated one.',
     ],
+  },
+]
+
+export const successStories: SuccessStory[] = [
+  {
+    client: 'FinEase Pay',
+    project: 'Stripe Billing Modernization',
+    outcome:
+      'Reduced checkout drop-offs by 23% and launched recurring plans in 3 markets.',
+    duration: '10 weeks',
+  },
+  {
+    client: 'Nova Health',
+    project: 'Platform Reliability Program',
+    outcome:
+      'Built monitoring standards and incident workflows, improving uptime to 99.95%.',
+    duration: '12 weeks',
+  },
+  {
+    client: 'Qalam Learning',
+    project: 'Security Pipeline Hardening',
+    outcome:
+      'Integrated secure SDLC checks and cut high-risk vulnerabilities before release by 68%.',
+    duration: '8 weeks',
+  },
+]
+
+export const products: Product[] = [
+  {
+    name: 'PulseBoard',
+    tagline: 'Ops dashboards for scaling SaaS teams',
+    description:
+      'A hosted dashboard toolkit that combines logs, alerts, and SLA snapshots into one simple command center.',
+    status: 'Live',
+  },
+  {
+    name: 'LaunchFlow',
+    tagline: 'Release checklists and approvals in one place',
+    description:
+      'A workflow tool for product and engineering teams to ship faster with pre-release quality gates.',
+    status: 'Private beta',
+  },
+  {
+    name: 'SecureLens',
+    tagline: 'Actionable security findings for developers',
+    description:
+      'A developer-first security companion that prioritizes SCA, SAST, and DAST findings by business impact.',
+    status: 'Coming soon',
+  },
+]
+
+export const strengthAreas: StrengthArea[] = [
+  {
+    title: 'Stripe Payment Integration',
+    details:
+      'Architect and implement robust Stripe payment flows, subscriptions, invoicing, and webhook automation.',
+  },
+  {
+    title: 'Monitoring with Grafana',
+    details:
+      'Set up observability stacks with Grafana dashboards, alert routing, and SLO-driven operations.',
+  },
+  {
+    title: 'Checkmarx SCA',
+    details:
+      'Run dependency risk analysis and enforce remediation policies across CI pipelines.',
+  },
+  {
+    title: 'Checkmarx SAST',
+    details:
+      'Shift-left static code scanning integrated into pull requests with developer-friendly triage.',
+  },
+  {
+    title: 'Checkmarx DAST',
+    details:
+      'Automate dynamic security testing in staging and production-like environments for runtime coverage.',
   },
 ]
 

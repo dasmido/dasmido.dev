@@ -7,14 +7,18 @@ function HomePage() {
         <img src={heroImg} width="220" height="220" alt="Profile portrait" />
       </figure>
 
-      <h1 className="home-profile-title">Hi, I&apos;m Mohammed!</h1>
+      <h1 className="home-profile-title">Hello!</h1>
 
       <p className="home-profile-intro">
         I recently built premium branding and web experiences for founders and
         growing businesses and I am currently looking for new opportunities.
       </p>
 
-      <p className="home-profile-contact">Please feel free to get in touch! :)</p>
+      {/*<p className="home-profile-contact">Please feel free to get in touch! :)</p>
+
+      <figure className="home-profile-banner">
+        <img src={platformScene} alt="Preview of modern SaaS platform work" />
+      </figure>*/}
 
       <nav className="home-socials" aria-label="Social links">
         <a className="home-social-link" href="mailto:hello@yourbrand.com" aria-label="Email">

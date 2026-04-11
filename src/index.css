@@ -14,7 +14,7 @@
 
   font: 17px/1.55 var(--sans);
   letter-spacing: 0.01em;
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -38,6 +38,39 @@
     --shadow:
       rgba(0, 0, 0, 0.35) 0 18px 35px -24px,
       rgba(0, 0, 0, 0.28) 0 8px 20px -16px;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='light'] {
+  --text: #5f6471;
+  --text-h: #111320;
+  --bg: #f8f9fd;
+  --border: #dddfee;
+  --accent: #6b4eff;
+  --surface: #ffffff;
+  --shadow:
+    rgba(19, 25, 39, 0.1) 0 18px 35px -24px,
+    rgba(19, 25, 39, 0.12) 0 8px 20px -16px;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --text: #b3bac8;
+  --text-h: #f5f7ff;
+  --bg: #0f1118;
+  --border: #2a3040;
+  --accent: #8f79ff;
+  --surface: #171b27;
+  --shadow:
+    rgba(0, 0, 0, 0.35) 0 18px 35px -24px,
+    rgba(0, 0, 0, 0.28) 0 8px 20px -16px;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='light'] {
+    color-scheme: light;
   }
 }
 

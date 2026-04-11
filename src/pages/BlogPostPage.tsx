@@ -1,9 +1,17 @@
 import { Link, useParams } from 'react-router-dom'
 import { blogPosts } from '../content'
+import brandScene from '../assets/brand-scene.svg'
+import platformScene from '../assets/platform-scene.svg'
+import securityScene from '../assets/security-scene.svg'
 
 function BlogPostPage() {
   const { slug } = useParams()
   const post = blogPosts.find((item) => item.slug === slug)
+  const imageByCategory: Record<string, string> = {
+    'Brand Strategy': brandScene,
+    Portfolio: platformScene,
+    'Web Design': securityScene,
+  }
 
   if (!post) {
     return (
@@ -31,6 +39,10 @@ function BlogPostPage() {
         <h1>{post.title}</h1>
         <time>{post.publishedAt}</time>
       </header>
+
+      <figure className="blog-post-media">
+        <img src={imageByCategory[post.category] ?? brandScene} alt={post.title} />
+      </figure>
 
       <div className="blog-post-content">
         {post.content.map((paragraph) => (
