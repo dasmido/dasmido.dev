@@ -32,7 +32,7 @@ function App() {
 
   const navItems = [
     { to: '/consult-me', label: 'Consult Me' },
-    { to: '/product', label: 'My Products' },
+    { to: '/product', label: 'My tools' },
     { to: '/success-stories', label: 'Success Stories' },
     { to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact' },

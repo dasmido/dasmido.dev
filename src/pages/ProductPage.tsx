@@ -27,6 +27,12 @@ function ProductPage() {
             <h2>{product.name}</h2>
             <p className="product-tagline">{product.tagline}</p>
             <p>{product.description}</p>
+            <div className="product-footer">
+              <p className="product-price">{product.price}</p>
+              <a href={product.link} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
+                Request Access
+              </a>
+            </div>
           </article>
         ))}
       </div>

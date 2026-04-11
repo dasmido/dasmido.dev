@@ -31,6 +31,8 @@ export type Product = {
   tagline: string
   description: string
   status: string
+  price: string
+  link: string
 }
 
 export type StrengthArea = {
@@ -148,26 +150,15 @@ export const successStories: SuccessStory[] = [
 
 export const products: Product[] = [
   {
-    name: 'PulseBoard',
-    tagline: 'Ops dashboards for scaling SaaS teams',
+    name: 'Topic Visualization',
+    tagline: 'Increase focus and clarity by visualizing your notes and todos as a topic graph.',
     description:
-      'A hosted dashboard toolkit that combines logs, alerts, and SLA snapshots into one simple command center.',
+      'Simple Agenda to track Todos, Notes based on categories and visualize them.',
     status: 'Live',
+    price: '$29/month',
+    link: 'https://topicviz.app',
   },
-  {
-    name: 'LaunchFlow',
-    tagline: 'Release checklists and approvals in one place',
-    description:
-      'A workflow tool for product and engineering teams to ship faster with pre-release quality gates.',
-    status: 'Private beta',
-  },
-  {
-    name: 'SecureLens',
-    tagline: 'Actionable security findings for developers',
-    description:
-      'A developer-first security companion that prioritizes SCA, SAST, and DAST findings by business impact.',
-    status: 'Coming soon',
-  },
+
 ]
 
 export const strengthAreas: StrengthArea[] = [

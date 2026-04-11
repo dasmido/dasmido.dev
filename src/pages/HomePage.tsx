@@ -7,7 +7,7 @@ function HomePage() {
         <img src={heroImg} width="220" height="220" alt="Profile portrait" />
       </figure>
 
-      <h1 className="home-profile-title">Hello!</h1>
+      <h1 className="home-profile-title">Mohammed A.</h1>
 
       <p className="home-profile-intro">
         I recently built premium branding and web experiences for founders and
@@ -21,7 +21,7 @@ function HomePage() {
       </figure>*/}
 
       <nav className="home-socials" aria-label="Social links">
-        <a className="home-social-link" href="mailto:hello@yourbrand.com" aria-label="Email">
+        <a className="home-social-link" href="mailto:jamalmohamad.ik@gmail.com" aria-label="Email">
           <svg className="home-social-icon" viewBox="0 0 24 24" aria-hidden="true">
             <rect x="3" y="6" width="18" height="12" rx="2" />
             <path d="M4 8l8 6 8-6" />
@@ -29,7 +29,7 @@ function HomePage() {
         </a>
         <a
           className="home-social-link"
-          href="https://github.com"
+          href="https://github.com/dasmido"
           target="_blank"
           rel="noreferrer"
           aria-label="GitHub"
@@ -42,7 +42,7 @@ function HomePage() {
         </a>
         <a
           className="home-social-link"
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/mohammed-a-7b8044173"
           target="_blank"
           rel="noreferrer"
           aria-label="LinkedIn"
@@ -54,18 +54,7 @@ function HomePage() {
             <path d="M12 12.2c0-1.8 1.1-3.2 3-3.2 1.8 0 3 1.2 3 3.3V17" />
           </svg>
         </a>
-        <a
-          className="home-social-link"
-          href="https://scholar.google.com"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Scholar"
-        >
-          <svg className="home-social-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M2.5 9.5L12 4l9.5 5.5L12 15z" />
-            <path d="M6 12v3.5c0 .9 2.7 2.5 6 2.5s6-1.6 6-2.5V12" />
-          </svg>
-        </a>
+
       </nav>
 
     </section>
