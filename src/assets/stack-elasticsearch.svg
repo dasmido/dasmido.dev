@@ -1,0 +1,8 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elasticsearch icon">
+  <rect width="96" height="96" rx="24" fill="#1E3A5F"/>
+  <ellipse cx="42" cy="31" rx="12" ry="16" fill="#FEC514"/>
+  <ellipse cx="56" cy="48" rx="12" ry="16" fill="#00BFB3"/>
+  <ellipse cx="42" cy="63" rx="12" ry="16" fill="#EF5098"/>
+  <text x="48" y="87" text-anchor="middle" fill="#fff" font-size="8.5" font-family="Arial, sans-serif" font-weight="700">ELASTICSEARCH</text>
+</svg>
+

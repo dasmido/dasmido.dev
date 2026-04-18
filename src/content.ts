@@ -150,13 +150,13 @@ export const successStories: SuccessStory[] = [
 
 export const products: Product[] = [
   {
-    name: 'Topic Visualization',
-    tagline: 'Increase focus and clarity by visualizing your notes and todos as a topic graph.',
+    name: 'MindYourAgenda',
+    tagline: 'Increase focus and clarity by visualizing your notes and todos by categories.',
     description:
-      'Simple Agenda to track Todos, Notes based on categories and visualize them.',
+      'Agenda MindMap to track Todos, Notes based on categories and visualize them.',
     status: 'Live',
     price: '$29/month',
-    link: 'https://topicviz.app',
+    link: 'http://localhost:8080',
   },
 
 ]

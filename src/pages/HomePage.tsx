@@ -1,18 +1,22 @@
-import heroImg from '../assets/hero.png'
 
 function HomePage() {
+
   return (
     <section className="section-shell route-page home-profile">
-      <figure className="home-profile-image">
+      {/*<figure className="home-profile-image">
         <img src={heroImg} width="220" height="220" alt="Profile portrait" />
-      </figure>
+      </figure>*/}
 
       <h1 className="home-profile-title">Mohammed A.</h1>
+      <h3 className="home-profile-role">Senior Software Engineer</h3>
 
       <p className="home-profile-intro">
-        I recently built premium branding and web experiences for founders and
-        growing businesses and I am currently looking for new opportunities.
+        With over 7 years of software engineering experience, I specialize in
+        Java application security and technical leadership to deliver secure,
+        scalable systems.
       </p>
+
+
 
       {/*<p className="home-profile-contact">Please feel free to get in touch! :)</p>
 
@@ -56,6 +60,18 @@ function HomePage() {
         </a>
 
       </nav>
+
+      {/* <section className="home-stack" aria-label="Technology stack">
+        <p className="home-stack-title">Core Stack</p>
+        <div className="home-stack-list">
+          {stackItems.map((item) => (
+            <div key={item.name} className="home-stack-item">
+              <img className="home-stack-icon" src={item.icon} alt={item.name} />
+              <span className="home-stack-name">{item.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>*/}
 
     </section>
   )

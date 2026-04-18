@@ -1,0 +1,7 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Java icon">
+  <rect width="96" height="96" rx="24" fill="#E76F51"/>
+  <path d="M33 58h30c0 9-7 14-15 14s-15-5-15-14Z" fill="#fff3ee"/>
+  <path d="M44 28c8 5-3 8 3 14M54 24c8 6-5 10 2 17" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <text x="48" y="87" text-anchor="middle" fill="#fff" font-size="13" font-family="Arial, sans-serif" font-weight="700">JAVA</text>
+</svg>
+

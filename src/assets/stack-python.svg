@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Python icon">
+  <rect width="96" height="96" rx="24" fill="#306998"/>
+  <path d="M49 20h-9c-7 0-10 4-10 10v9h20c4 0 7-3 7-7v-2c0-6-3-10-8-10Z" fill="#FFD43B"/>
+  <circle cx="43" cy="28" r="2.5" fill="#306998"/>
+  <path d="M47 76h9c7 0 10-4 10-10v-9H46c-4 0-7 3-7 7v2c0 6 3 10 8 10Z" fill="#FFE873"/>
+  <circle cx="53" cy="68" r="2.5" fill="#306998"/>
+  <text x="48" y="87" text-anchor="middle" fill="#fff" font-size="11" font-family="Arial, sans-serif" font-weight="700">PYTHON</text>
+</svg>
+

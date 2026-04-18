@@ -197,12 +197,12 @@
 }
 
 .route-page {
-  min-height: calc(100svh - 150px);
+  min-height: calc(80svh - 150px);
   align-content: start;
 }
 
 .page-copy {
-  max-width: 52ch;
+  /*max-width: 52ch;*/
   margin-top: 1rem;
 }
 
@@ -324,7 +324,7 @@
 }
 
 .cta {
-  text-align: center;
+  text-align: start;
 }
 
 .cta .btn {
@@ -358,7 +358,7 @@
   justify-items: center;
   align-content: center;
   text-align: center;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 .home-profile-image {
@@ -375,16 +375,16 @@
 
 .home-profile-title {
   margin: 0;
-  font-size: clamp(2.4rem, 4.4vw, 4.2rem);
+  font-size: clamp(1.4rem, 3.4vw, 3.2rem);
   letter-spacing: -0.03em;
 }
 
 .home-profile-intro,
 .home-profile-contact {
-  max-width: 42ch;
+  max-width: 52ch;
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.35rem, 1.9vw, 2rem);
+  font-size: clamp(1rem, 1.3vw, 2rem);
   line-height: 1.5;
   color: color-mix(in srgb, var(--text-h) 92%, var(--text));
 }
@@ -443,12 +443,58 @@
   stroke-linejoin: round;
 }
 
+.home-stack {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+  width: min(760px, 100%);
+}
+
+.home-stack-title {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.home-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.home-stack-item {
+  min-width: 110px;
+  padding: 0.8rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  display: grid;
+  gap: 0.45rem;
+  justify-items: center;
+  box-shadow: var(--shadow);
+}
+
+.home-stack-icon {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  display: block;
+}
+
+.home-stack-name {
+  font-size: 0.9rem;
+  color: var(--text-h);
+}
+
 .blog-page {
   padding-top: 3.5rem;
 }
 
 .blog-head {
-  max-width: 44rem;
+  /*max-width: 44rem;*/
   margin-bottom: 2rem;
 }
 
@@ -566,7 +612,7 @@
 .stories-head,
 .product-head,
 .consult-head {
-  max-width: 48rem;
+  /*max-width: 48rem;*/
   margin-bottom: 1.7rem;
 }
 
@@ -642,6 +688,41 @@
 
 .consult-cta {
   margin-top: 1.4rem;
+}
+
+.consult-redesign .consult-head {
+  margin-bottom: 1.2rem;
+}
+
+.consult-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.2rem;
+}
+
+.consult-impact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.consult-impact-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.consult-impact-card h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.15rem;
+}
+
+.consult-impact-card p {
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -753,12 +834,20 @@
     height: 1.7rem;
   }
 
+  .home-stack-item {
+    min-width: 96px;
+  }
+
   .blog-grid {
     grid-template-columns: 1fr;
   }
 
   .blog-card h2 {
     font-size: 1.2rem;
+  }
+
+  .consult-impact-grid {
+    grid-template-columns: 1fr;
   }
 
   .blog-card-footer {
@@ -848,6 +937,23 @@
   .home-social-icon {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .home-stack {
+    width: 100%;
+  }
+
+  .home-stack-list {
+    gap: 0.6rem;
+  }
+
+  .home-stack-item {
+    min-width: calc(50% - 0.6rem);
+    padding: 0.7rem;
+  }
+
+  .home-stack-name {
+    font-size: 0.85rem;
   }
 
   .primary-nav {
