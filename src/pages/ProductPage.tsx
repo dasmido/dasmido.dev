@@ -1,10 +1,10 @@
 import { products } from '../content'
-import platformScene from '../assets/platform-scene.svg'
 import dashboardScene from '../assets/dashboard-scene.svg'
 import mindmapImg from '../assets/mindmap.png'
+import pomScene from '../assets/pom.png'
 
 function ProductPage() {
-  const productImages = [mindmapImg, platformScene, dashboardScene]
+  const productImages = [mindmapImg, pomScene,dashboardScene]
 
   return (
     <section className="section-shell section-block route-page product-page">

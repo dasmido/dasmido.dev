@@ -151,6 +151,15 @@ export const products: Product[] = [
     price: '$29/month',
     link: 'https://mindyouragenda.sliplane.app',
   },
+{
+    name: 'POM Analyzer',
+    tagline: 'Optimize your Java projects with insights into dependencies, structure, and potential updates.',
+    description:
+      'Maven POM file analyzer that provides insights into project dependencies, structure, and potential versions update.',
+    status: 'Live',
+    price: 'Free',
+    link: 'https://analyzer.sliplane.app',
+  },
 
 ]
 

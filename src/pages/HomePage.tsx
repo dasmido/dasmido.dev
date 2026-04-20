@@ -1,4 +1,3 @@
-import profileLogoM from '../assets/profile-logo-m.svg'
 
 function HomePage() {
 
