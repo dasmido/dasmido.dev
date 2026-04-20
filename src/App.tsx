@@ -37,7 +37,7 @@ function App() {
    // { to: '/consult-me', label: 'Hire Me' },
     { to: '/product', label: 'My tools' },
     { to: '/success-stories', label: 'Success Stories' },
-    { to: '/blog', label: 'Blog' },
+    //{ to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact' },
   ]
 
