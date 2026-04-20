@@ -11,7 +11,7 @@ function HomePage() {
       <h3 className="home-profile-role">Senior Software Engineer</h3>
 
       <p className="home-profile-intro">
-        With over 7 years of software engineering experience, I specialize in
+        Over 7 years of software engineering experience, I specialize in
         Java application security and technical leadership to deliver secure,
         scalable systems.
       </p>

@@ -126,26 +126,19 @@ export const blogPosts: BlogPost[] = [
 
 export const successStories: SuccessStory[] = [
   {
-    client: 'FinEase Pay',
-    project: 'Stripe Billing Modernization',
+    client: '',
+    project: 'IT Provisioning Tool',
     outcome:
-      'Reduced checkout drop-offs by 23% and launched recurring plans in 3 markets.',
-    duration: '10 weeks',
+      'An Internal Software that can handle new hire boarding process with the workstation, provisioning, onboarding & offboarding.',
+    duration: '2 Years 5 months',
   },
   {
-    client: 'Nova Health',
-    project: 'Platform Reliability Program',
+    client: '',
+    project: 'Monitoring Dashboard',
     outcome:
-      'Built monitoring standards and incident workflows, improving uptime to 99.95%.',
-    duration: '12 weeks',
-  },
-  {
-    client: 'Qalam Learning',
-    project: 'Security Pipeline Hardening',
-    outcome:
-      'Integrated secure SDLC checks and cut high-risk vulnerabilities before release by 68%.',
-    duration: '8 weeks',
-  },
+      'Grafana-based monitoring dashboard that aggregates data from source, providing a single pane of glass for system observability and performance metrics.',
+    duration: '1 Year',
+  }
 ]
 
 export const products: Product[] = [
@@ -156,7 +149,7 @@ export const products: Product[] = [
       'Agenda MindMap to track Todos, Notes based on categories and visualize them.',
     status: 'Live',
     price: '$29/month',
-    link: 'http://localhost:8080',
+    link: 'https://mindyouragenda.sliplane.app',
   },
 
 ]

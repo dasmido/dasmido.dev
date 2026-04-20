@@ -31,7 +31,7 @@ function App() {
   })
 
   const navItems = [
-    { to: '/consult-me', label: 'Hire Me' },
+   // { to: '/consult-me', label: 'Hire Me' },
     { to: '/product', label: 'My tools' },
     { to: '/success-stories', label: 'Success Stories' },
     { to: '/blog', label: 'Blog' },

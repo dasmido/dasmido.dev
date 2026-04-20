@@ -1,19 +1,17 @@
 import { successStories } from '../content'
-import deliveryScene from '../assets/delivery-scene.svg'
-import dashboardScene from '../assets/dashboard-scene.svg'
-import securityScene from '../assets/security-scene.svg'
+import itpScene from '../assets/itp.png'
+import grafanaScene from '../assets/grafana.png'
 
 function SuccessStoriesPage() {
-  const storyImages = [deliveryScene, dashboardScene, securityScene]
+  const storyImages = [itpScene, grafanaScene]
 
   return (
     <section className="section-shell section-block route-page stories-page">
       <div className="stories-head">
         <p className="eyebrow">Success Stories</p>
-        <h1>Projects delivered with measurable results.</h1>
+        <h1>Projects I Delivered.</h1>
         <p className="page-copy">
-          A snapshot of successful client engagements across payments, reliability,
-          and secure engineering delivery.
+          A snapshot of successful delivery software.
         </p>
       </div>
 
