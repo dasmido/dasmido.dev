@@ -11,6 +11,7 @@ import SuccessStoriesPage from './pages/SuccessStoriesPage'
 import ServicesPage from './pages/ServicesPage'
 import WorkPage from './pages/WorkPage'
 import './App.css'
+import logoM from './assets/profile-logo-m.svg'
 
 function App() {
   const location = useLocation()
@@ -51,7 +52,8 @@ function App() {
     <main className="page">
       <header className="site-header section-shell">
         <NavLink to="/" className="brand">
-          DASMIDO
+          <img className="brand-mark" src={logoM} width="28" height="28" alt="DASMIDO logo" />
+          <span>DASMIDO</span>
         </NavLink>
         <button
           className="menu-toggle"

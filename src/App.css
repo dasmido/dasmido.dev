@@ -22,10 +22,20 @@
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   color: var(--text-h);
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.06em;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 0.55rem;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .primary-nav {
@@ -365,12 +375,14 @@
   margin: 0;
 }
 
-.home-profile-image img {
+.home-profile-image img,
+.home-profile-logo {
   width: 220px;
   height: 220px;
-  border-radius: 50%;
+  border-radius: 28%;
   object-fit: cover;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .home-profile-title {
@@ -915,7 +927,8 @@
     gap: 1.1rem;
   }
 
-  .home-profile-image img {
+  .home-profile-image img,
+  .home-profile-logo {
     width: 170px;
     height: 170px;
   }

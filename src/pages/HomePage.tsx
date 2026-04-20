@@ -1,10 +1,11 @@
+import profileLogoM from '../assets/profile-logo-m.svg'
 
 function HomePage() {
 
   return (
     <section className="section-shell route-page home-profile">
-      {/*<figure className="home-profile-image">
-        <img src={heroImg} width="220" height="220" alt="Profile portrait" />
+      {/*}<figure className="home-profile-image" aria-hidden="true">
+        <img className="home-profile-logo" src={profileLogoM} width="220" height="220" alt="" />
       </figure>*/}
 
       <h1 className="home-profile-title">Mohammed A.</h1>
@@ -78,4 +79,3 @@ function HomePage() {
 }
 
 export default HomePage
-

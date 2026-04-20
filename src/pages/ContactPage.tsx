@@ -9,9 +9,9 @@ function ContactPage() {
         <p className="page-copy">
           Typically respond within 24 hours.
         </p>
-        <a className="btn btn-primary" href="mailto:jamalmohamad.ik@gmail.com">
+       {/*} <a className="btn btn-primary" href="mailto:jamalmohamad.ik@gmail.com">
           jamalmohamad.ik@gmail.com
-        </a>
+        </a>*/}
       </div>
       <figure className="page-media">
         <img src={businessCard} alt="Contact and discovery call visual" />
