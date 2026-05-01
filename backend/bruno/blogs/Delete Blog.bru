@@ -1,0 +1,12 @@
+meta {
+  name: Delete Blog
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/blogs/{{blogId}}
+  body: none
+  auth: none
+}
+

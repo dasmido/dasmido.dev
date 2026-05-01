@@ -1,0 +1,24 @@
+meta {
+  name: Update Blog
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/blogs/{{blogId}}
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "title": "Updated Bruno blog",
+    "content": "This blog post was updated from Bruno.",
+    "published": true
+  }
+}
+

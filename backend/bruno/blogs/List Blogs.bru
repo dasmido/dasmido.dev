@@ -1,0 +1,17 @@
+meta {
+  name: List Blogs
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/blogs
+  body: none
+  auth: none
+}
+
+params:query {
+  skip: 0
+  limit: 20
+}
+

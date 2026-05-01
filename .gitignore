@@ -11,6 +11,26 @@ node_modules
 dist
 dist-ssr
 *.local
+.vite/
+
+# Python / FastAPI
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local backend config and data
+backend/.env
+backend/.myblog/
+backend/test_backend.db
+
+# Bruno local environments
+backend/bruno/environments/*.bru
 
 # Editor directories and files
 .vscode/*

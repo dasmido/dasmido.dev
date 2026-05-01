@@ -39,7 +39,7 @@ function App() {
     { to: '/product', label: 'My tools' },
     { to: '/success-stories', label: 'Success Stories' },
     //{ to: '/3d-printing', label: '3D Store' },
-    //{ to: '/blog', label: 'Blog' },
+    { to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact' },
   ]
 
@@ -98,7 +98,7 @@ function App() {
         <Route path="/product" element={<ProductPage />} />
         <Route path="/consult-me" element={<ConsultMePage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/blog/:blogId" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/terms" element={<TermsOfServicePage />} />
