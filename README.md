@@ -19,6 +19,17 @@ export VITE_BLOG_ADMIN_KEY="local-admin-key"
 npm run dev
 ```
 
+## Production API
+
+- Your live API is available at `https://api-dasmido.sliplane.app/api/blogs`.
+- For the frontend env, prefer setting:
+
+```bash
+export VITE_API_BASE_URL="https://api-dasmido.sliplane.app"
+```
+
+- The frontend also tolerates pasted values like `https://api-dasmido.sliplane.app/api` or `https://api-dasmido.sliplane.app/api/blogs`, but the API host only is the cleanest value.
+
 ## Blog write protection
 
 - Backend blog mutations require `X-Admin-Key` matching `BLOG_ADMIN_KEY`.

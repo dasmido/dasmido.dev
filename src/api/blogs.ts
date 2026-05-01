@@ -31,7 +31,15 @@ export type BlogManageItem = BlogDetail & {
   updatedAt: string
 }
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
+function normalizeApiBaseUrl(value: string): string {
+  return value
+    .trim()
+    .replace(/\/$/, '')
+    .replace(/\/api\/blogs$/, '')
+    .replace(/\/api$/, '')
+}
+
+const API_BASE_URL = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL ?? '')
 const BLOG_ADMIN_KEY = (import.meta.env.VITE_BLOG_ADMIN_KEY ?? '').trim()
 const BLOG_CATEGORY = 'Blog article'
 

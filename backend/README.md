@@ -17,6 +17,12 @@ export BLOG_ADMIN_KEY="local-admin-key"
 
 ```
 
+## Production notes
+- Live API base: `https://api-dasmido.sliplane.app`
+- Live blogs endpoint: `https://api-dasmido.sliplane.app/api/blogs`
+- Set `CORS_ORIGINS` to your deployed frontend origin, for example `https://your-frontend-domain.example`
+- Do **not** set `CORS_ORIGINS` to the API domain unless the frontend is also served from that same origin
+
 ## Build Docker image
 Build from the repository root so the backend Dockerfile can copy `backend/...` files correctly:
 
