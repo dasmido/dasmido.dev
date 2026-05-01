@@ -29,6 +29,17 @@ export VITE_API_BASE_URL="https://api-dasmido.sliplane.app"
 ```
 
 - The frontend also tolerates pasted values like `https://api-dasmido.sliplane.app/api` or `https://api-dasmido.sliplane.app/api/blogs`, but the API host only is the cleanest value.
+- If `VITE_API_BASE_URL` is missing in production, the frontend now falls back to `https://api-dasmido.sliplane.app` for blog reads.
+
+## Production Docker build
+
+Build the frontend image with the API base URL baked into the Vite bundle:
+
+```bash
+docker build \
+  --build-arg VITE_API_BASE_URL="https://api-dasmido.sliplane.app" \
+  -t my-react-frontend .
+```
 
 ## Blog write protection
 

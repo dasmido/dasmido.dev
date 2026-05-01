@@ -31,6 +31,8 @@ export type BlogManageItem = BlogDetail & {
   updatedAt: string
 }
 
+const DEFAULT_PRODUCTION_API_BASE_URL = 'https://api-dasmido.sliplane.app'
+
 function normalizeApiBaseUrl(value: string): string {
   return value
     .trim()
@@ -39,7 +41,25 @@ function normalizeApiBaseUrl(value: string): string {
     .replace(/\/api$/, '')
 }
 
-const API_BASE_URL = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL ?? '')
+function resolveApiBaseUrl(): string {
+  const configuredBaseUrl = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL ?? '')
+  if (configuredBaseUrl) {
+    return configuredBaseUrl
+  }
+
+  if (typeof window === 'undefined') {
+    return DEFAULT_PRODUCTION_API_BASE_URL
+  }
+
+  const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+  if (isLocalhost) {
+    return ''
+  }
+
+  return DEFAULT_PRODUCTION_API_BASE_URL
+}
+
+const API_BASE_URL = resolveApiBaseUrl()
 const BLOG_ADMIN_KEY = (import.meta.env.VITE_BLOG_ADMIN_KEY ?? '').trim()
 const BLOG_CATEGORY = 'Blog article'
 
