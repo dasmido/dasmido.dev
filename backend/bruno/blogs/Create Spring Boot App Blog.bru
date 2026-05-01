@@ -1,5 +1,5 @@
 meta {
-  name: Create Spring
+  name: Create Spring Boot App Blog
   type: http
   seq: 6
 }
@@ -17,48 +17,7 @@ headers {
 body:json {
   {
     "title": "How to Create a New Spring Boot App from Scratch",
-    "content": "## Why Spring Boot is a great place to start\n\nSpring Boot helps you build production-ready Java applications with less setup. Instead of wiring every dependency and configuration manually, you can start with sensible defaults and focus on your business logic first.\n\n![Starting a new Java project](https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80 \"Figure 1. A clean project setup makes it easier to move from idea to working API.\")\n\n## Step 1: Generate the project\n\nThe fastest way to begin is with [Spring Initializr](https://start.spring.io/). Choose these options:\n\n| Setting | Recommended value |\n| --- | --- |\n| Project | Maven Project |\n| Language | Java |\n| Spring Boot | Latest stable version |\n| Group | `com.example` |\n| Artifact | `demo` |\n| Packaging | Jar |\n| Java | 21 or your team's standard |\n\nFor dependencies, start with:\n\n- **Spring Web** for REST APIs\n- **Spring Boot DevTools** for faster local development\n- **Spring Data JPA** if you plan to connect a database\n- **PostgreSQL Driver** if PostgreSQL is your database\n\n## Step 2: Unzip and inspect the structure\n\nOnce downloaded, your project will usually look like this:\n\n```text
-src/
-  main/
-    java/com/example/demo/
-      DemoApplication.java
-    resources/
-      application.properties
-pom.xml
-```
-\nThe main entry point is the generated `DemoApplication.java` file. Spring Boot uses this class to bootstrap the application.\n\n## Step 3: Run the app for the first time\n\nIf you are using Maven, run:\n\n```bash
-./mvnw spring-boot:run
-```
-\nIf the app starts successfully, you should see logs showing that the embedded server is running, usually on port `8080`.\n\n## Step 4: Add your first REST endpoint\n\nCreate a controller like this:\n\n```java
-package com.example.demo;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class HelloController {
-
-    @GetMapping("/api/hello")
-    public MessageResponse hello() {
-        return new MessageResponse("Spring Boot app is running");
-    }
-
-    public record MessageResponse(String message) {}
-}
-```
-\nNow open `http://localhost:8080/api/hello` and you should get a JSON response back.\n\n## Step 5: Configure application properties\n\nYour `src/main/resources/application.properties` file can start very small:\n\n```properties
-spring.application.name=demo
-server.port=8080
-```
-\nLater, if you add PostgreSQL, expand it like this:\n\n```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/demo_db
-spring.datasource.username=postgres
-spring.datasource.password=postgres
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-```
-\n## Step 6: Keep the first version simple\n\nWhen starting a new Spring Boot app, avoid adding too much too early. A strong first milestone is:\n\n1. App starts cleanly\n2. One health or hello endpoint works\n3. Config values are externalized\n4. Database connection works if needed\n5. Project builds with `./mvnw test`\n\n![Spring Boot development workflow](https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80 \"Figure 2. Build confidence by validating one small feature at a time.\")\n\n## Common beginner mistakes\n\n| Mistake | Better approach |\n| --- | --- |\n| Adding too many starters | Begin with only what you need |\n| Hardcoding secrets | Use environment variables or profiles |\n| Mixing config everywhere | Keep config in `application.properties` or profile files |\n| Skipping tests | Add at least one smoke test early |\n\n## Final takeaway\n\nA new Spring Boot app does not need to be complicated. Generate the project, run it immediately, add one endpoint, and only then start layering on database access, validation, security, and testing. A clean start gives you a codebase that is easier to grow and maintain.\n\n> The best first version of a Spring Boot app is the one you can run, understand, and extend in under an hour.",
+    "content": "## Why Spring Boot is a great place to start\n\nSpring Boot helps you build production-ready Java applications with less setup. Instead of wiring every dependency manually, you can start quickly and focus on business logic.\n\n![Spring setup workspace](https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80 \"Figure 1. Start simple, then scale architecture intentionally.\")\n\n## Step 1: Generate your project\n\nUse [Spring Initializr](https://start.spring.io/) with these values:\n\n| Setting | Value |\n| --- | --- |\n| Project | Maven Project |\n| Language | Java |\n| Packaging | Jar |\n| Java | 21 |\n\nStart dependencies with: **Spring Web**, **Spring Boot DevTools**, and optionally **Spring Data JPA** + **PostgreSQL Driver**.\n\n## Step 2: Run your app\n\nRun `./mvnw spring-boot:run`, then open `http://localhost:8080`. If startup logs are clean, your base app is ready.\n\n## Step 3: Add a first endpoint\n\nCreate a controller with `@RestController` and expose `GET /api/hello` returning a JSON message.\n\n## Step 4: Keep configuration clean\n\nPut app settings in `application.properties` and keep credentials in environment variables.\n\n## Step 5: Build incrementally\n\n1. Verify app starts\n2. Verify one endpoint works\n3. Add validation\n4. Add persistence\n5. Add tests\n\n![Iteration workflow](https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80 \"Figure 2. Validate one capability at a time.\")\n\n## Common mistakes\n\n| Mistake | Better approach |\n| --- | --- |\n| Adding many starters too early | Add only what you need now |\n| Hardcoding secrets | Use env vars/profiles |\n| Skipping tests | Add smoke tests from day one |\n\n> A great first Spring Boot version is small, runnable, and easy to extend.",
     "published": true
   }
 }
-

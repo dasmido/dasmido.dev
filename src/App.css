@@ -515,6 +515,97 @@
   margin-top: 0.7rem;
 }
 
+.blog-page-actions {
+  margin-top: 1rem;
+}
+
+.blog-editor {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 1.4rem;
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+
+.blog-editor-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.blog-editor-input,
+.blog-editor-textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  color: var(--text-h);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+}
+
+.blog-editor-textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.blog-editor-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.blog-editor-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.blog-editor-error {
+  margin: 0;
+  color: #d24b4b;
+}
+
+.blog-editor-success {
+  margin: 0;
+  color: #2f9b59;
+}
+
+.blog-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg) 35%, #000 65%);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 30;
+}
+
+.blog-modal {
+  width: min(760px, 100%);
+  max-height: calc(100svh - 2rem);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.blog-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1rem 0;
+}
+
+.blog-modal-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -557,6 +648,24 @@
   gap: 1rem;
   padding-top: 0.45rem;
   border-top: 1px solid var(--border);
+}
+
+.blog-card-actions {
+  display: inline-flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.blog-link-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.blog-link-danger {
+  color: #d24b4b;
 }
 
 .blog-post-page {
