@@ -17,6 +17,14 @@ export BLOG_ADMIN_KEY="local-admin-key"
 
 ```
 
+## Build Docker image
+Build from the repository root so the backend Dockerfile can copy `backend/...` files correctly:
+
+```zsh
+cd ..
+docker build -f backend/Dockerfile -t my-react-backend .
+```
+
 ## Test
 ```zsh
 source .venv/bin/activate
