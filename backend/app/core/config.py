@@ -20,6 +20,7 @@ class Settings:
             "DATABASE_URL",
             "postgresql+psycopg://postgres:postgres@localhost:5432/my_react",
         )
+        self.blog_admin_key: str = getenv("BLOG_ADMIN_KEY", "local-admin-key")
 
 
 @lru_cache

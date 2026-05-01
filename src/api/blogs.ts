@@ -32,7 +32,10 @@ export type BlogManageItem = BlogDetail & {
 }
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
+const BLOG_ADMIN_KEY = (import.meta.env.VITE_BLOG_ADMIN_KEY ?? '').trim()
 const BLOG_CATEGORY = 'Blog article'
+
+export const canManageBlogs = BLOG_ADMIN_KEY.length > 0
 
 async function requestJson<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, init)
@@ -49,6 +52,16 @@ async function requestVoid(path: string, init: RequestInit): Promise<void> {
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)
+  }
+}
+
+function getAdminHeaders(): Record<string, string> {
+  if (!BLOG_ADMIN_KEY) {
+    throw new Error('Blog admin key is not configured')
+  }
+
+  return {
+    'X-Admin-Key': BLOG_ADMIN_KEY,
   }
 }
 
@@ -142,6 +155,7 @@ export async function createBlog(payload: BlogMutationInput): Promise<BlogManage
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      ...getAdminHeaders(),
     },
     body: JSON.stringify(payload),
   })
@@ -154,6 +168,7 @@ export async function updateBlog(blogId: number, payload: BlogMutationInput): Pr
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
+      ...getAdminHeaders(),
     },
     body: JSON.stringify(payload),
   })
@@ -164,6 +179,9 @@ export async function updateBlog(blogId: number, payload: BlogMutationInput): Pr
 export async function deleteBlog(blogId: number): Promise<void> {
   await requestVoid(`/api/blogs/${blogId}`, {
     method: 'DELETE',
+    headers: {
+      ...getAdminHeaders(),
+    },
   })
 }
 

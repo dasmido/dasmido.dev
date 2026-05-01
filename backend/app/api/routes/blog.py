@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_db
+from app.api.deps import get_db, require_blog_admin
 from app.crud.blog import create_blog, delete_blog, get_blog, list_blogs, update_blog
 from app.schemas.blog import BlogCreate, BlogRead, BlogUpdate
 
@@ -9,7 +9,11 @@ router = APIRouter(prefix="/api/blogs", tags=["blogs"])
 
 
 @router.post("", response_model=BlogRead, status_code=status.HTTP_201_CREATED)
-def create_blog_post(payload: BlogCreate, db: Session = Depends(get_db)) -> BlogRead:
+def create_blog_post(
+    payload: BlogCreate,
+    db: Session = Depends(get_db),
+    _: None = Depends(require_blog_admin),
+) -> BlogRead:
     blog = create_blog(db, payload)
     return blog
 
@@ -36,6 +40,7 @@ def update_blog_post(
     blog_id: int,
     payload: BlogUpdate,
     db: Session = Depends(get_db),
+    _: None = Depends(require_blog_admin),
 ) -> BlogRead:
     blog = get_blog(db, blog_id)
     if blog is None:
@@ -44,7 +49,11 @@ def update_blog_post(
 
 
 @router.delete("/{blog_id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_blog_post(blog_id: int, db: Session = Depends(get_db)) -> None:
+def delete_blog_post(
+    blog_id: int,
+    db: Session = Depends(get_db),
+    _: None = Depends(require_blog_admin),
+) -> None:
     blog = get_blog(db, blog_id)
     if blog is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Blog not found")

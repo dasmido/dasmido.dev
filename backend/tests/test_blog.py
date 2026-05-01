@@ -1,5 +1,19 @@
 from fastapi.testclient import TestClient
 
+ADMIN_HEADERS = {"X-Admin-Key": "test-admin-key"}
+
+
+def test_blog_mutation_requires_admin_key(client: TestClient) -> None:
+    payload = {
+        "title": "Blocked",
+        "content": "No key provided",
+        "published": True,
+    }
+
+    response = client.post("/api/blogs", json=payload)
+    assert response.status_code == 401
+    assert response.json() == {"detail": "Invalid admin key"}
+
 
 def test_create_and_fetch_blog(client: TestClient) -> None:
     payload = {
@@ -8,7 +22,7 @@ def test_create_and_fetch_blog(client: TestClient) -> None:
         "published": True,
     }
 
-    create_response = client.post("/api/blogs", json=payload)
+    create_response = client.post("/api/blogs", json=payload, headers=ADMIN_HEADERS)
     assert create_response.status_code == 201
     created = create_response.json()
 
@@ -29,10 +43,12 @@ def test_list_update_and_delete_blog(client: TestClient) -> None:
     first = client.post(
         "/api/blogs",
         json={"title": "A", "content": "alpha", "published": False},
+        headers=ADMIN_HEADERS,
     ).json()
     second = client.post(
         "/api/blogs",
         json={"title": "B", "content": "beta", "published": False},
+        headers=ADMIN_HEADERS,
     ).json()
 
     list_response = client.get("/api/blogs", params={"skip": 0, "limit": 10})
@@ -44,6 +60,7 @@ def test_list_update_and_delete_blog(client: TestClient) -> None:
     update_response = client.put(
         f"/api/blogs/{second['id']}",
         json={"title": "B updated", "content": "beta updated", "published": True},
+        headers=ADMIN_HEADERS,
     )
     assert update_response.status_code == 200
     updated = update_response.json()
@@ -51,7 +68,7 @@ def test_list_update_and_delete_blog(client: TestClient) -> None:
     assert updated["content"] == "beta updated"
     assert updated["published"] is True
 
-    delete_response = client.delete(f"/api/blogs/{first['id']}")
+    delete_response = client.delete(f"/api/blogs/{first['id']}", headers=ADMIN_HEADERS)
     assert delete_response.status_code == 204
 
     missing_response = client.get(f"/api/blogs/{first['id']}")

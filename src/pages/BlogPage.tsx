@@ -1,11 +1,14 @@
 import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  canManageBlogs,
   createBlog,
   deleteBlog,
+  fetchBlogPreviews,
   fetchManageBlogs,
   updateBlog,
   type BlogManageItem,
+  type BlogPreview,
   type BlogMutationInput,
 } from '../api/blogs'
 import brandScene from '../assets/brand-scene.svg'
@@ -44,7 +47,16 @@ function BlogPage() {
     setIsLoading(true)
 
     try {
-      const nextPosts = await fetchManageBlogs()
+      const nextPosts = canManageBlogs
+        ? await fetchManageBlogs()
+        : (await fetchBlogPreviews()).map(
+            (post: BlogPreview): BlogManageItem => ({
+              ...post,
+              content: '',
+              published: true,
+              updatedAt: '',
+            }),
+          )
       setPosts(nextPosts)
       setError(null)
     } catch {
@@ -152,19 +164,27 @@ function BlogPage() {
   return (
     <section className="section-shell section-block route-page blog-page">
       <div className="blog-head">
-        <p className="eyebrow">Blog CMS</p>
-        <h1>Create, update, and publish blog posts from the UI.</h1>
+        <p className="eyebrow">{canManageBlogs ? 'Blog CMS' : 'Blog'}</p>
+        {/*<h1>
+          {canManageBlogs
+            ? 'Create, update, and publish blog posts from the UI.'
+            : 'Articles and practical notes from real projects.'}
+        </h1>
         <p className="blog-subtitle">
-          The form below is wired to your FastAPI blog CRUD endpoints.
-        </p>
-        <div className="blog-page-actions">
-          <button type="button" className="btn btn-primary" onClick={openCreateDialog}>
-            New blog
-          </button>
-        </div>
+          {canManageBlogs
+            ? 'Write operations are protected with an admin key and sent securely through the API.'
+            : 'Read-only mode. Configure VITE_BLOG_ADMIN_KEY to enable create, edit, and delete.'}
+        </p>*/}
+        {canManageBlogs ? (
+          <div className="blog-page-actions">
+            <button type="button" className="btn btn-primary" onClick={openCreateDialog}>
+              New blog
+            </button>
+          </div>
+        ) : null}
       </div>
 
-      {isEditorOpen ? (
+      {canManageBlogs && isEditorOpen ? (
         <div className="blog-modal-backdrop" onClick={closeDialog}>
           <div
             className="blog-modal"
@@ -250,7 +270,7 @@ function BlogPage() {
             <p className="blog-card-meta">
               <span>{post.category}</span>
               <span>{post.readTime}</span>
-              <span>{post.published ? 'Published' : 'Draft'}</span>
+              {canManageBlogs ? <span>{post.published ? 'Published' : 'Draft'}</span> : null}
             </p>
             <h2>{post.title}</h2>
             <p>{post.excerpt}</p>
@@ -260,16 +280,20 @@ function BlogPage() {
                 <Link to={`/blog/${post.id}`} className="text-link">
                   Read
                 </Link>
-                <button type="button" className="text-link blog-link-button" onClick={() => handleEdit(post)}>
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  className="text-link blog-link-button blog-link-danger"
-                  onClick={() => handleDelete(post.id)}
-                >
-                  Delete
-                </button>
+                {canManageBlogs ? (
+                  <button type="button" className="text-link blog-link-button" onClick={() => handleEdit(post)}>
+                    Edit
+                  </button>
+                ) : null}
+                {canManageBlogs ? (
+                  <button
+                    type="button"
+                    className="text-link blog-link-button blog-link-danger"
+                    onClick={() => handleDelete(post.id)}
+                  >
+                    Delete
+                  </button>
+                ) : null}
               </div>
             </div>
           </article>
