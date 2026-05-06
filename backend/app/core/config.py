@@ -13,7 +13,7 @@ class Settings:
         self.app_port: int = int(getenv("APP_PORT", "8000"))
         self.cors_origins: list[str] = [
             origin.strip()
-            for origin in getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
+            for origin in getenv("CORS_ORIGINS", "http://localhost:5173,https://dasmido.dev").split(",")
             if origin.strip()
         ]
         self.database_url: str = getenv(
@@ -26,4 +26,3 @@ class Settings:
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-

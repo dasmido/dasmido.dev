@@ -53,7 +53,7 @@ function resolveApiBaseUrl(): string {
 
   const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname)
   if (isLocalhost) {
-    return ''
+    return DEFAULT_PRODUCTION_API_BASE_URL // Updated to use production API base URL for consistency.
   }
 
   return DEFAULT_PRODUCTION_API_BASE_URL
@@ -212,4 +212,3 @@ export async function deleteBlog(blogId: number): Promise<void> {
     },
   })
 }
-
