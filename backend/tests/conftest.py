@@ -11,7 +11,7 @@ from app.core.config import get_settings
 def client() -> TestClient:
     test_db_path = Path("./test_backend.db")
     os.environ["DATABASE_URL"] = f"sqlite:///{test_db_path}"
-    os.environ["BLOG_ADMIN_KEY"] = "test-admin-key"
+    os.environ["JWT_SECRET_KEY"] = "test-jwt-secret"
     get_settings.cache_clear()
 
     from app.db.base import Base

@@ -1,9 +1,19 @@
 from fastapi.testclient import TestClient
 
-ADMIN_HEADERS = {"X-Admin-Key": "test-admin-key"}
+def auth_headers(client: TestClient) -> dict[str, str]:
+    client.post(
+        "/api/auth/register",
+        json={"email": "writer@example.com", "password": "password123"},
+    )
+    login_response = client.post(
+        "/api/auth/login",
+        json={"email": "writer@example.com", "password": "password123"},
+    )
+    token = login_response.json()["access_token"]
+    return {"Authorization": f"Bearer {token}"}
 
 
-def test_blog_mutation_requires_admin_key(client: TestClient) -> None:
+def test_blog_mutation_requires_token(client: TestClient) -> None:
     payload = {
         "title": "Blocked",
         "content": "No key provided",
@@ -12,17 +22,18 @@ def test_blog_mutation_requires_admin_key(client: TestClient) -> None:
 
     response = client.post("/api/blogs", json=payload)
     assert response.status_code == 401
-    assert response.json() == {"detail": "Invalid admin key"}
+    assert response.json() == {"detail": "Not authenticated"}
 
 
 def test_create_and_fetch_blog(client: TestClient) -> None:
+    headers = auth_headers(client)
     payload = {
         "title": "First blog post",
         "content": "Hello from FastAPI and PostgreSQL",
         "published": True,
     }
 
-    create_response = client.post("/api/blogs", json=payload, headers=ADMIN_HEADERS)
+    create_response = client.post("/api/blogs", json=payload, headers=headers)
     assert create_response.status_code == 201
     created = create_response.json()
 
@@ -40,15 +51,16 @@ def test_create_and_fetch_blog(client: TestClient) -> None:
 
 
 def test_list_update_and_delete_blog(client: TestClient) -> None:
+    headers = auth_headers(client)
     first = client.post(
         "/api/blogs",
         json={"title": "A", "content": "alpha", "published": False},
-        headers=ADMIN_HEADERS,
+        headers=headers,
     ).json()
     second = client.post(
         "/api/blogs",
         json={"title": "B", "content": "beta", "published": False},
-        headers=ADMIN_HEADERS,
+        headers=headers,
     ).json()
 
     list_response = client.get("/api/blogs", params={"skip": 0, "limit": 10})
@@ -60,7 +72,7 @@ def test_list_update_and_delete_blog(client: TestClient) -> None:
     update_response = client.put(
         f"/api/blogs/{second['id']}",
         json={"title": "B updated", "content": "beta updated", "published": True},
-        headers=ADMIN_HEADERS,
+        headers=headers,
     )
     assert update_response.status_code == 200
     updated = update_response.json()
@@ -68,7 +80,7 @@ def test_list_update_and_delete_blog(client: TestClient) -> None:
     assert updated["content"] == "beta updated"
     assert updated["published"] is True
 
-    delete_response = client.delete(f"/api/blogs/{first['id']}", headers=ADMIN_HEADERS)
+    delete_response = client.delete(f"/api/blogs/{first['id']}", headers=headers)
     assert delete_response.status_code == 204
 
     missing_response = client.get(f"/api/blogs/{first['id']}")

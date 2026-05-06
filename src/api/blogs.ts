@@ -60,10 +60,10 @@ function resolveApiBaseUrl(): string {
 }
 
 const API_BASE_URL = resolveApiBaseUrl()
-const BLOG_ADMIN_KEY = (import.meta.env.VITE_BLOG_ADMIN_KEY ?? '').trim()
 const BLOG_CATEGORY = 'Blog article'
+const AUTH_TOKEN_STORAGE_KEY = 'blog-admin-token'
 
-export const canManageBlogs = BLOG_ADMIN_KEY.length > 0
+export const canManageBlogs = false
 
 async function requestJson<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, init)
@@ -83,13 +83,18 @@ async function requestVoid(path: string, init: RequestInit): Promise<void> {
   }
 }
 
-function getAdminHeaders(): Record<string, string> {
-  if (!BLOG_ADMIN_KEY) {
-    throw new Error('Blog admin key is not configured')
+function getAuthHeaders(): Record<string, string> {
+  if (typeof window === 'undefined') {
+    throw new Error('Authentication is only available in the browser')
+  }
+
+  const token = window.localStorage.getItem(AUTH_TOKEN_STORAGE_KEY)
+  if (!token) {
+    throw new Error('Missing auth token')
   }
 
   return {
-    'X-Admin-Key': BLOG_ADMIN_KEY,
+    Authorization: `Bearer ${token}`,
   }
 }
 
@@ -183,7 +188,7 @@ export async function createBlog(payload: BlogMutationInput): Promise<BlogManage
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...getAdminHeaders(),
+      ...getAuthHeaders(),
     },
     body: JSON.stringify(payload),
   })
@@ -196,7 +201,7 @@ export async function updateBlog(blogId: number, payload: BlogMutationInput): Pr
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      ...getAdminHeaders(),
+      ...getAuthHeaders(),
     },
     body: JSON.stringify(payload),
   })
@@ -208,7 +213,7 @@ export async function deleteBlog(blogId: number): Promise<void> {
   await requestVoid(`/api/blogs/${blogId}`, {
     method: 'DELETE',
     headers: {
-      ...getAdminHeaders(),
+      ...getAuthHeaders(),
     },
   })
 }

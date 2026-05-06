@@ -15,6 +15,7 @@ import logoM from './assets/profile-logo-m.svg'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import ThreeDPrintingPage from './pages/ThreeDPrintingPage'
+import DashboardPage from './pages/DashboardPage'
 
 function App() {
   const location = useLocation()
@@ -40,6 +41,7 @@ function App() {
     { to: '/success-stories', label: 'Success Stories' },
     //{ to: '/3d-printing', label: '3D Store' },
     { to: '/blog', label: 'Blog' },
+    { to: '/dashboard', label: 'Dashboard' },
     { to: '/contact', label: 'Contact' },
   ]
 
@@ -98,6 +100,7 @@ function App() {
         <Route path="/product" element={<ProductPage />} />
         <Route path="/consult-me" element={<ConsultMePage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/blog/:blogId" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />

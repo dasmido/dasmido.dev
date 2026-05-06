@@ -1,11 +1,15 @@
 from collections.abc import Generator
-from secrets import compare_digest
 
-from fastapi import Header, HTTPException, status
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
-from app.core.config import get_settings
+from app.core.security import decode_access_token
+from app.crud.user import get_user_by_email
 from app.db.session import SessionLocal
+from app.models.user import User
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 
 def get_db() -> Generator[Session, None, None]:
@@ -16,12 +20,24 @@ def get_db() -> Generator[Session, None, None]:
         db.close()
 
 
-def require_blog_admin(x_admin_key: str | None = Header(default=None)) -> None:
-    settings = get_settings()
-    if not x_admin_key or not compare_digest(x_admin_key, settings.blog_admin_key):
+def get_current_user(
+    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)
+) -> User:
+    email = decode_access_token(token)
+    if email is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid admin key",
+            detail="Invalid or expired token",
+            headers={"WWW-Authenticate": "Bearer"},
         )
+
+    user = get_user_by_email(db, email)
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or expired token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return user
 
 

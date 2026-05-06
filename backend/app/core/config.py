@@ -20,7 +20,11 @@ class Settings:
             "DATABASE_URL",
             "postgresql+psycopg://postgres:postgres@localhost:5432/my_react",
         )
-        self.blog_admin_key: str = getenv("BLOG_ADMIN_KEY", "local-admin-key")
+        self.jwt_secret_key: str = getenv("JWT_SECRET_KEY", "dev-jwt-secret-change-me")
+        self.jwt_algorithm: str = getenv("JWT_ALGORITHM", "HS256")
+        self.jwt_access_token_expire_minutes: int = int(
+            getenv("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", "120")
+        )
 
 
 @lru_cache

@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_db, require_blog_admin
+from app.api.deps import get_current_user, get_db
 from app.crud.blog import create_blog, delete_blog, get_blog, list_blogs, update_blog
+from app.models.user import User
 from app.schemas.blog import BlogCreate, BlogRead, BlogUpdate
 
 router = APIRouter(prefix="/api/blogs", tags=["blogs"])
@@ -12,7 +13,7 @@ router = APIRouter(prefix="/api/blogs", tags=["blogs"])
 def create_blog_post(
     payload: BlogCreate,
     db: Session = Depends(get_db),
-    _: None = Depends(require_blog_admin),
+    _: User = Depends(get_current_user),
 ) -> BlogRead:
     blog = create_blog(db, payload)
     return blog
@@ -40,7 +41,7 @@ def update_blog_post(
     blog_id: int,
     payload: BlogUpdate,
     db: Session = Depends(get_db),
-    _: None = Depends(require_blog_admin),
+    _: User = Depends(get_current_user),
 ) -> BlogRead:
     blog = get_blog(db, blog_id)
     if blog is None:
@@ -52,7 +53,7 @@ def update_blog_post(
 def delete_blog_post(
     blog_id: int,
     db: Session = Depends(get_db),
-    _: None = Depends(require_blog_admin),
+    _: User = Depends(get_current_user),
 ) -> None:
     blog = get_blog(db, blog_id)
     if blog is None:
