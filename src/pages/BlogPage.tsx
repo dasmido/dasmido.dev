@@ -259,7 +259,7 @@ function BlogPage() {
 
       {error ? <p>{error}</p> : null}
 
-      {!isLoading && !error && posts.length === 0 ? <p>No blog posts yet. Create one above.</p> : null}
+      {!isLoading && !error && posts.length === 0 ? <p>No blog posts yet.</p> : null}
 
       <div className="blog-grid">
         {posts.map((post, index) => (

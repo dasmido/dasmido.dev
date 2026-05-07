@@ -160,6 +160,15 @@ export const products: Product[] = [
     price: 'Free',
     link: 'https://analyzer.sliplane.app',
   },
+{
+    name: 'DataBase Backup Utility CLI',
+    tagline: 'Lightweight command-line tool that handles both PostgreSQL and MySQL backups through a single workflow.',
+    description:
+      'Lightweight command-line tool that handles both PostgreSQL and MySQL backups through a single workflow.',
+    status: 'Live',
+    price: 'Free',
+    link: 'https://analyzer.sliplane.app',
+  },
 
 ]
 

@@ -9,7 +9,6 @@ function SuccessStoriesPage() {
     <section className="section-shell section-block route-page stories-page">
       <div className="stories-head">
         <p className="eyebrow">Success Stories</p>
-        <h1>Projects I Delivered.</h1>
         <p className="page-copy">
           A snapshot of successful delivery software.
         </p>

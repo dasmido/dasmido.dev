@@ -5,7 +5,6 @@ function ContactPage() {
     <section className="section-shell cta route-page contact-page">
       <div>
         <p className="eyebrow">Contact</p>
-        <h2>Ready to deliver secure, scalable software?</h2>
         <p className="page-copy">
           Typically respond within 24 hours.
         </p>
