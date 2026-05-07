@@ -43,6 +43,7 @@ function App() {
     { to: '/blog', label: 'Blog' },
     //{ to: '/dashboard', label: 'Dashboard' },
     { to: '/contact', label: 'Contact' },
+
   ]
 
   useEffect(() => {
