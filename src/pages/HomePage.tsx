@@ -1,4 +1,3 @@
-
 function HomePage() {
 
   return (
@@ -6,6 +5,23 @@ function HomePage() {
       {/*}<figure className="home-profile-image" aria-hidden="true">
         <img className="home-profile-logo" src={profileLogoM} width="220" height="220" alt="" />
       </figure>*/}
+
+      <figure className="home-profile-image" aria-hidden="true">
+        <svg
+          className="home-profile-person-icon"
+          viewBox="0 0 24 24"
+          width="220"
+          height="220"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="8" r="4" fill="currentColor" />
+          <path
+            d="M6 20c0-2.67 5.33-4 6-4s6 1.33 6 4v1H6v-1z"
+            fill="currentColor"
+          />
+        </svg>
+      </figure>
 
       <h1 className="home-profile-title">Mohammed A.</h1>
       <h3 className="home-profile-role">Senior Software Engineer</h3>
