@@ -11,9 +11,9 @@ import {
   type BlogPreview,
   type BlogMutationInput,
 } from '../api/blogs'
-import brandScene from '../assets/brand-scene.svg'
-import platformScene from '../assets/platform-scene.svg'
-import securityScene from '../assets/security-scene.svg'
+//import brandScene from '../assets/brand-scene.svg'
+//import platformScene from '../assets/platform-scene.svg'
+//import securityScene from '../assets/security-scene.svg'
 
 const INITIAL_FORM: BlogMutationInput = {
   title: '',
@@ -22,7 +22,7 @@ const INITIAL_FORM: BlogMutationInput = {
 }
 
 function BlogPage() {
-  const blogImages = [brandScene, platformScene, securityScene]
+  //const blogImages = [brandScene, platformScene, securityScene]
   const [posts, setPosts] = useState<BlogManageItem[]>([])
   const [form, setForm] = useState<BlogMutationInput>(INITIAL_FORM)
   const [editingId, setEditingId] = useState<number | null>(null)
@@ -262,7 +262,7 @@ function BlogPage() {
       {!isLoading && !error && posts.length === 0 ? <p>No blog posts yet.</p> : null}
 
       <div className="blog-grid">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <article key={post.id} className="blog-card">
             {/*<figure className="blog-media">
               <img src={blogImages[index % blogImages.length]} alt={post.title} />
