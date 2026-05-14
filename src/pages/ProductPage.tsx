@@ -68,6 +68,8 @@ function ProductPage() {
                   fill="none"
                   aria-hidden="true"
                   focusable="false"
+                  width="34"
+                  height="34"
                 >
                   <path
                     d="M11.5 4.5H15.5V8.5M15.5 4.5L9 11M8.5 6H6.5C5.39543 6 4.5 6.89543 4.5 8V13.5C4.5 14.6046 5.39543 15.5 6.5 15.5H12C13.1046 15.5 14 14.6046 14 13.5V11.5"

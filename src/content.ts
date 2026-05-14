@@ -149,7 +149,7 @@ export const products: Product[] = [
       'Agenda MindMap to track Todos, Notes based on categories and visualize them.',
     status: 'Live',
     price: '$29/month',
-    link: 'https://mindyouragenda.sliplane.app',
+    link: 'https://github.com/dasmido/mindyouragenda',
   },
 {
     name: 'POM Analyzer',
@@ -167,7 +167,7 @@ export const products: Product[] = [
       'Lightweight command-line tool that handles both PostgreSQL and MySQL backups through a single workflow.',
     status: 'Live',
     price: 'Free',
-    link: 'https://analyzer.sliplane.app',
+    link: 'https://github.com/dasmido/dbb-utils-cli',
   },
 
 ]
