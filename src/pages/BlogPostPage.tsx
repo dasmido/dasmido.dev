@@ -3,9 +3,9 @@ import ReactMarkdown from 'react-markdown'
 import { Link, useParams } from 'react-router-dom'
 import remarkGfm from 'remark-gfm'
 import { fetchBlogDetail, type BlogDetail } from '../api/blogs'
-import brandScene from '../assets/brand-scene.svg'
-import platformScene from '../assets/platform-scene.svg'
-import securityScene from '../assets/security-scene.svg'
+//import brandScene from '../assets/brand-scene.svg'
+//import platformScene from '../assets/platform-scene.svg'
+//import securityScene from '../assets/security-scene.svg'
 
 function BlogPostPage() {
   const { blogId } = useParams()
@@ -61,7 +61,7 @@ function BlogPostPage() {
     }
   }, [blogId])
 
-  const blogImages = [brandScene, platformScene, securityScene]
+//const blogImages = [brandScene, platformScene, securityScene]
 
   if (isLoading) {
     return (
@@ -100,7 +100,7 @@ function BlogPostPage() {
     return null
   }
 
-  const image = blogImages[post.id % blogImages.length] ?? ""
+  //const image = blogImages[post.id % blogImages.length] ?? ""
 
   return (
     <article className="section-shell section-block route-page blog-post-page">
@@ -117,9 +117,9 @@ function BlogPostPage() {
         <time>{post.publishedAt}</time>
       </header>
 
-      <figure className="blog-post-media">
+      {/*<figure className="blog-post-media">
         <img src={image} alt={post.title} />
-      </figure>
+      </figure>*/}
 
       <div className="blog-post-content">
         <ReactMarkdown
