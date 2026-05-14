@@ -59,8 +59,8 @@ function App() {
     <main className="page">
       <header className="site-header section-shell">
         <NavLink to="/" className="brand">
-          <img className="brand-mark" src={logoM} width="28" height="28" alt="DASMIDO logo" />
-          <span>DASMIDO</span>
+          <img className="brand-mark" src={logoM} width="30" height="30" alt="DASMIDO logo" />
+          {/*<span>DASMIDO</span>*/}
         </NavLink>
         <button
           className="menu-toggle"
