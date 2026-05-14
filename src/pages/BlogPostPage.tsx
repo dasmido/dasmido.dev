@@ -100,7 +100,7 @@ function BlogPostPage() {
     return null
   }
 
-  const image = blogImages[post.id % blogImages.length] ?? brandScene
+  const image = blogImages[post.id % blogImages.length] ?? ""
 
   return (
     <article className="section-shell section-block route-page blog-post-page">

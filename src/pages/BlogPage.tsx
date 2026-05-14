@@ -264,9 +264,9 @@ function BlogPage() {
       <div className="blog-grid">
         {posts.map((post, index) => (
           <article key={post.id} className="blog-card">
-            <figure className="blog-media">
+            {/*<figure className="blog-media">
               <img src={blogImages[index % blogImages.length]} alt={post.title} />
-            </figure>
+            </figure>*/}
             <p className="blog-card-meta">
               <span>{post.category}</span>
               <span>{post.readTime}</span>
